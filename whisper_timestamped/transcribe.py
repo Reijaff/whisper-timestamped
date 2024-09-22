@@ -2419,7 +2419,7 @@ def load_model(
         processor = transformers.WhisperProcessor.from_pretrained(name, cache_dir=cache_dir)
         if device is None:
             device = "cuda" if torch.cuda.is_available() else "cpu"
-        precision = torch.float32
+        precision = torch.int8
         model = transformers.WhisperForConditionalGeneration.from_pretrained(
             name,
             # load_in_8bit=True,
